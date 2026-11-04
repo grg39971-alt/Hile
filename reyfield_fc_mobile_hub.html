@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090b12">
+<title>REYFIELD HUB | FC MOBILE</title>
+<style>
+:root{--red:#ff2948;--bg:#080a10;--panel:#111521;--muted:#9299aa}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 15%,#35101c 0,#11101a 35%,#080a10 75%);color:#fff;font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;padding:22px}
+.app{width:min(100%,440px);border:1px solid #ffffff18;border-radius:28px;background:linear-gradient(160deg,#171b29ee,#0b0e16f5);box-shadow:0 25px 90px #000b;overflow:hidden}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 12px}
+.brand{font-weight:950;letter-spacing:3px;font-size:20px}.brand span{color:var(--red)}
+.status{font-size:10px;letter-spacing:1.5px;color:#9af0bd;border:1px solid #5bd58b55;background:#15332266;padding:7px 10px;border-radius:30px}
+.hero{margin:12px 18px 0;height:165px;border-radius:19px;position:relative;overflow:hidden;background:linear-gradient(180deg,#210c18aa,#090b12),repeating-linear-gradient(90deg,#1b3b2a 0 2px,#10251d 2px 4px);display:grid;place-items:center}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,#ff294855,transparent 55%),linear-gradient(90deg,transparent 49.7%,#ffffff20 50%,transparent 50.3%)}
+.pitch{position:absolute;inset:20px 35px;border:1px solid #ffffff25;border-radius:50%}
+.pitch:after{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid #ffffff25}
+.heroText{z-index:1;text-align:center}.heroText b{display:block;font-size:34px;letter-spacing:4px;text-shadow:0 5px 25px #ff294899}.heroText small{font-size:10px;letter-spacing:4px;color:#d4d7df}
+h1{text-align:center;font-size:25px;letter-spacing:3px;margin:24px 0 5px}
+.sub{text-align:center;color:var(--muted);font-size:11px;letter-spacing:2px;margin:0 0 22px}
+.feature{margin:0 18px;padding:17px;border:1px solid #ff29484d;background:linear-gradient(110deg,#32121e88,#171521);border-radius:16px;display:flex;align-items:center;justify-content:space-between}
+.feature strong{display:block;letter-spacing:1.5px;font-size:14px}.feature small{display:block;color:#aeb3c0;margin-top:5px;font-size:11px}
+.tag{font-size:9px;color:#ff9aaa;border:1px solid #ff294866;border-radius:20px;padding:7px 9px;letter-spacing:1px}
+.launch{display:block;width:calc(100% - 36px);margin:20px 18px 12px;border:0;border-radius:16px;padding:19px 12px;background:linear-gradient(110deg,#ff2948,#b70d2d);color:white;font-weight:900;font-size:17px;letter-spacing:3px;box-shadow:0 9px 28px #ff294833;cursor:pointer;transition:transform .15s,filter .15s}
+.launch:active{transform:scale(.98);filter:brightness(.9)}
+.note{text-align:center;color:#858c9d;font-size:10px;line-height:1.6;padding:0 25px 20px}
+.footer{border-top:1px solid #ffffff12;text-align:center;padding:15px;color:#747c8d;font-size:9px;letter-spacing:2px}
+#message{display:none;margin:0 18px 15px;padding:12px;border-radius:12px;background:#24202a;color:#ffd5dc;font-size:12px;line-height:1.5;text-align:center}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top"><div class="brand">REYFIELD<span>.</span></div><div class="status">● READY</div></header>
+  <section class="hero" aria-label="Futbol sahası temalı görsel">
+    <div class="pitch"></div><div class="heroText"><b>FC</b><small>MOBILE HUB</small></div>
+  </section>
+  <h1>POWER SHOT</h1>
+  <p class="sub">SINGLE FEATURE EDITION</p>
+  <section class="feature">
+    <div><strong>POWER SHOT</strong><small>Şut çalışması için yardımcı bölüm</small></div>
+    <span class="tag">ONLY FEATURE</span>
+  </section>
+  <button class="launch" id="launch">BAŞLAT <span aria-hidden="true">↗</span></button>
+  <div id="message" role="status">FC Mobile açılamadıysa oyunun cihazında yüklü olduğundan emin ol. Oyunu ana ekrandan da açabilirsin.</div>
+  <p class="note">BAŞLAT düğmesi FC Mobile uygulamasını açmayı dener. Bu panel oyun dosyalarını veya çevrimiçi maç mekaniklerini değiştirmez.</p>
+  <footer class="footer">REYFIELD HUB&nbsp; • &nbsp;V1.0</footer>
+</main>
+<script>
+document.getElementById('launch').addEventListener('click', function () {
+  const msg = document.getElementById('message');
+  msg.style.display = 'block';
+  // Android uygulama başlatma intent'i. Paket adı cihazdaki sürüme göre değişebilir.
+  window.location.href =
+    'intent://launch/#Intent;scheme=android-app;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.ea.gp.fifamobile;end';
+  // Bazı tarayıcılar uygulama açma intent'lerini engelleyebilir; bilgilendirme görünür kalır.
+});
+</script>
+</body>
+</html>
